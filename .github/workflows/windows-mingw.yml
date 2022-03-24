@@ -1,5 +1,10 @@
 name: Windows MinGW
 on: 
+  workflow_call:
+    inputs:
+      targetname:
+        required: true
+        type: string
   push:
     paths:
       - '*.pro'
@@ -13,7 +18,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: windows-2019
+    runs-on: windows-lastest
     strategy:
       matrix:
         include:
